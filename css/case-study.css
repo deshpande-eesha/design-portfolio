@@ -1396,6 +1396,13 @@ tr:hover .ci{transform:scale(1.12)}
   height: auto;
 }
 
+.ccp-hifi-rows .img-slot img.ccp-hifi-phone {
+  width: auto;
+  max-width: 48%;
+  height: auto;
+  display: block;
+}
+
 .ccp-hifi-rows .ccp-row-text,
 .ccp-hifi-rows .img-slot,
 .ccp-hifi-rows .ccp-video-wrap {
@@ -2925,7 +2932,8 @@ tr:hover .ci{transform:scale(1.12)}
   width: 88px;
   height: 88px;
   object-fit: contain;
-  mix-blend-mode: multiply;
+  background: transparent;
+  border-radius: 50%;
 }
 
 .idp-learn-text p:first-child {
