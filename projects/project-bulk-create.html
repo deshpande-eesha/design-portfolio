@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bulk Create Projects - a Procore company Home workflow to create up to 100 projects from Excel, with preview, in-place repair, and an honest split between what committed and what did not.">
+  <title>Bulk Create Projects - Eesha Deshpande</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/case-study.css">
+</head>
+<body class="site-page">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="construction-bg" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="site-chrome-wrap">
+    <div class="site-chrome" id="main-nav">
+      <ul class="nav-links" id="site-nav" data-nav>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../projects.html" class="current">Projects</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+    </div>
+  </div>
+
+  <main id="main" class="page-content case-page">
+  <div class="case-shell procore-shell">
+
+<article class="case-hero-card procore-hero-card">
+<p class="case-eyebrow">Procore company Home · Q1 2026</p>
+<p class="bc-kicker">Project overview</p>
+<h1><span>Bulk Create</span> Projects</h1>
+<p class="case-hero-subtitle">Company admins used to stand up a portfolio one form at a time. This workflow lets them create up to 100 projects from the Excel list they already keep - with preview, in-place repair, and an honest split between what committed and what did not.</p>
+<div class="meta-strip">
+  <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">Senior Product Designer, end-to-end</p></div>
+  <div class="meta-item"><p class="meta-label">Team</p><p class="meta-value">PM, frontend, platform, content, design systems</p></div>
+  <div class="meta-item"><p class="meta-label">Timeline</p><p class="meta-value">Q1 2026 · ~8 weeks discovery through hi-fi</p></div>
+  <div class="meta-item"><p class="meta-label">Tools</p><p class="meta-value">Figma, Core React, clickable HTML prototype, Excel</p></div>
+</div>
+<figure class="bc-fig">
+  <div class="gs-slot gs-slot--hero" data-slot="bulk-create-preview.jpg"></div>
+  <figcaption>Final product. The tearsheet on company Home: template on the right, preview of identified projects on the left, Bulk Create only after the file is understood.</figcaption>
+</figure>
+</article>
+
+<div class="case-body-layout procore-layout">
+<aside class="case-index" data-case-index aria-label="On this page"></aside>
+<div class="case-body-card procore-body-card">
+<div class="case-main">
+<div class="procore-panel">
+
+<section class="case-section" id="overview">
+  <p class="bc-kicker">At a glance</p>
+  <h2 class="section-heading" data-index="Overview">Summary</h2>
+  <p>I designed a company-level bulk create path on the Project List so administrators can stand up a portfolio from Excel without leaving Home, without a second primary button, and without a blind write.</p>
+  <p>The result is a tearsheet that downloads a governed template, previews every row, lets people fix uniqueness errors in place, confirms an irreversible job, then reports success and failure as two operable lists plus email - not a single toast that hides the misses.</p>
+  <div class="bc-stats">
+    <div class="bc-stat"><b>100</b><span>Maximum projects per file. The cap is shown before upload, not after silent truncation.</span></div>
+    <div class="bc-stat"><b>5 states</b><span>Empty, loading, valid, invalid, no-match - one tearsheet, one mental model.</span></div>
+    <div class="bc-stat"><b>2 outcomes</b><span>Successful list and unsuccessful list, with reasons, report, and admin email.</span></div>
+  </div>
+</section>
+
+<section class="case-section" id="challenge">
+  <p class="bc-kicker">The challenge</p>
+  <h2 class="section-heading" data-index="Challenge">The problem</h2>
+  <p>Create Project is the right tool for one jobsite. It is the wrong tool for a capital program, a bond cycle, or the week after an acquisition. Company admins already have the portfolio in a workbook. Procore asked them to retype it, row by row.</p>
+  <p>The pain is not only time. A mistyped name, a reused number, or a job that dies mid-batch leaves a half-created company. Project name and project number are identity. Duplicates cannot exist. Procore cannot silently edit customer data. The write is irreversible. A hundred creates can take minutes - long enough that a blocking spinner on Home is itself a failure.</p>
+  <div class="bc-two" style="margin-top:8px;">
+    <p class="bc-jtbd">When I have a list of new projects to stand up, I want to create them from the workbook I already maintain, so the company is ready without a week in a form - and I know exactly which rows became projects.</p>
+    <div>
+      <h3 style="margin-top:0;">Who hurts</h3>
+      <p>Company administrators and PMO leads at owners and GCs. They work on company Home, not inside a project. They own uniqueness. They are accountable when the list in Procore does not match the list in Excel.</p>
+    </div>
+  </div>
+
+  <h3>Business goals</h3>
+  <ul>
+    <li><strong>Time-to-first-portfolio.</strong> New companies and year-start standups should not stall on data entry.</li>
+    <li><strong>Data integrity.</strong> No duplicate names or numbers. No silent row drops. No Support-edited customer files.</li>
+    <li><strong>Adoption of company Home.</strong> Bulk create had to live on the Project List so the list remains the system of record, not a side importer.</li>
+    <li><strong>Support load.</strong> Failed imports should be self-serve: preview, inline reason, unsuccessful list, downloadable report.</li>
+    <li><strong>Platform reuse.</strong> Ship on Core React overlays (tearsheet, banner, toast, modal, empty state) so this does not become a one-off bulk-import UI.</li>
+  </ul>
+
+  <h3>Constraints</h3>
+  <div class="bc-table-wrap">
+    <table class="bc-table">
+      <thead><tr><th>Limit</th><th>What it meant for design</th></tr></thead>
+      <tbody>
+        <tr><td>Identity rules</td><td>Name and number must be unique across the company. Preview had to surface those errors before write, in language the product already uses.</td></tr>
+        <tr><td>Data ownership</td><td>Procore staff cannot correct a submitted template. The workbook itself had to carry the disclaimer and the fill rules.</td></tr>
+        <tr><td>100-row cap</td><td>Platform limit. Extra rows never appear on the list. The cap had to be visible before people paste 400 lines.</td></tr>
+        <tr><td>5 MB · .xls / .xlsx</td><td>One file, stated formats. No CSV ambiguity in v1. No multi-file queue.</td></tr>
+        <tr><td>One in-flight job</td><td>Overlapping writes against the same uniqueness index create silent collisions. Concurrent bulk create is refused, not queued.</td></tr>
+        <tr><td>Irreversible create</td><td>Projects cannot be “undone” as a batch. Confirm is a focused modal, not a checkbox in the footer.</td></tr>
+        <tr><td>Async duration</td><td>Minutes, not seconds. Home must stay usable. Progress is a toast, not a locked wizard.</td></tr>
+        <tr><td>Action hierarchy</td><td>Create Project stays the primary CTA. Bulk cannot become a second orange button.</td></tr>
+        <tr><td>Design system</td><td>Tearsheet for complex contextual work, modal for short irreversible questions, banners for file-level issues, toasts for job status.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="case-section" id="research">
+  <p class="bc-kicker">Research and discovery</p>
+  <h2 class="section-heading" data-index="Research">What we needed to learn</h2>
+  <p>The brief was “let them create many projects.” The research question was narrower: <em>where does the list already live, what does trusted commit look like, and which failures are acceptable?</em></p>
+  <ul>
+    <li>Where do admins author the first portfolio today?</li>
+    <li>What makes them trust - or abandon - a bulk tool?</li>
+    <li>Which errors they will fix in the product vs. back in Excel?</li>
+    <li>What they do when some rows succeed and some do not.</li>
+    <li>Whether bulk should feel like Create Project, like Export, or like a new app.</li>
+  </ul>
+
+  <h3>User research</h3>
+  <p>Discovery sat with company admins and PMO leads who stand up portfolios at company create, fiscal-year start, and post-acquisition. I also walked existing Create Project, export, and other Procore bulk patterns, and mapped support themes around duplicate projects and import bounce-backs.</p>
+  <div class="bc-quotes">
+    <div class="bc-quote">“The list is already in Excel. The form is the tax.”<span>Company admin · owner</span></div>
+    <div class="bc-quote">“If three rows are wrong I still need the other ninety. Don’t fail the file.”<span>PMO lead · GC</span></div>
+    <div class="bc-quote">“I left for a meeting and had no idea which ones actually created.”<span>Director · public works</span></div>
+  </div>
+  <h4>What kept repeating</h4>
+  <div class="bc-table-wrap">
+    <table class="bc-table">
+      <thead><tr><th>Theme</th><th>Evidence in the work</th></tr></thead>
+      <tbody>
+        <tr><td>Spreadsheet is the source of truth</td><td>Downloadable Excel template with instructions inside the file, not a 40-field form in the tearsheet.</td></tr>
+        <tr><td>They will not re-learn a grid</td><td>Author in Excel. Validate in Procore. Repair uniqueness in the preview because those two rules are product rules, not spreadsheet taste.</td></tr>
+        <tr><td>All-or-nothing imports are hostile</td><td>Continue with errors is allowed; copy names exactly what will not be created.</td></tr>
+        <tr><td>Blind writes destroy trust</td><td>No create without preview. Empty / loading / valid / invalid / no-match are designed states.</td></tr>
+        <tr><td>Jobs run longer than attention</td><td>Async toast, split result pages, admin email with count, actor, and time.</td></tr>
+        <tr><td>Duplicates are a compliance issue</td><td>Inline name and number errors with sequential review, not a dumped list of 96 rows.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Target user</h3>
+  <div class="bc-two">
+    <div class="bc-card">
+      <h3>Primary - Company administrator</h3>
+      <p>Opens company Home. Owns the project list. Runs standup after a new company or a new program. Lives in Excel. Accountable for unique names and numbers. Needs a path they can hand to a coordinator without sitting on the page.</p>
+      <p class="bc-muted"><strong>Needs:</strong> template they can fill offline, preview before write, partial success, a record of what failed, email when the job finishes.</p>
+    </div>
+    <div class="bc-card">
+      <h3>Secondary - PMO / coordinator</h3>
+      <p>Compiles the workbook from PMs. May not have full company admin rights in every scenario. Will hit the 100-row cap and the “one job at a time” rule. Will try Bulk Create with an empty dropzone or a mismatched sheet.</p>
+      <p class="bc-muted"><strong>Needs:</strong> the cap before they paste, empty-file and no-match states that name the miss, disabled overflow while a job is running.</p>
+    </div>
+  </div>
+  <figure class="bc-fig">
+    <div class="gs-slot" data-slot="bulk-create-homepage.jpg"></div>
+    <figcaption>The workplace is company Home. Bulk create that opened a different app would orphan the list they are trying to fill.</figcaption>
+  </figure>
+
+  <h3>Competitor and pattern audit</h3>
+  <p>I compared how portfolios get created in construction software and how enterprise products handle bulk writes. The gaps were consistent: either one-by-one forms, or file imports that bounce the whole sheet with no preview.</p>
+  <div class="bc-table-wrap">
+    <table class="bc-table">
+      <thead><tr><th>Pattern</th><th>What it does</th><th>Gap we refused to copy</th></tr></thead>
+      <tbody>
+        <tr><td>Procore Create Project</td><td>Excellent for one job. Full form, full control.</td><td>Does not scale to 40–100 rows. Must stay primary, not be cloned as “Create many.”</td></tr>
+        <tr><td>Legacy construction CSV imports</td><td>Email a file, wait, get a bounce.</td><td>No preview. Errors return days later. Customer data gets “fixed” by someone else - which we cannot do.</td></tr>
+        <tr><td>In-product spreadsheet grids</td><td>Paste 100 rows into the UI.</td><td>Reimplements Excel poorly. Horizontal scroll, lost formulas, no offline fill. Admins already have Excel.</td></tr>
+        <tr><td>Salesforce-style import wizard</td><td>Map columns, see errors, download error file.</td><td>Strong on mapping; weak if the error file is the only repair path. We kept in-place uniqueness repair for product rules.</td></tr>
+        <tr><td>All-or-nothing APIs</td><td>One bad row fails the batch.</td><td>Punishes 93 good rows. Partial success had to be first-class.</td></tr>
+        <tr><td>Silent truncation</td><td>Accept 100 of 400 with no warning.</td><td>Destroys trust. Cap is an info banner before upload.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="case-section" id="process">
+  <p class="bc-kicker">The process</p>
+  <h2 class="section-heading" data-index="Process">Ideation</h2>
+  <p>Three directions were real options. Only one survived the constraints of identity, irreversibility, and Home as context.</p>
+  <div class="bc-concepts">
+    <div class="bc-concept">
+      <h3>A. Dedicated wizard</h3>
+      <p>A new page: upload → map columns → confirm. Clean, linear, easy to demo.</p>
+      <p class="bc-muted">Rejected. Leaves the Project List. Feels like a different product. Mapping UI is overkill when the template is ours.</p>
+    </div>
+    <div class="bc-concept">
+      <h3>B. Paste into the table</h3>
+      <p>Turn the Project List into an editable grid. Fast for power users who already think in cells.</p>
+      <p class="bc-muted">Rejected. Fights the existing list. No offline authoring. Dangerous to mix “edit live projects” with “create 100 new ones.”</p>
+    </div>
+    <div class="bc-concept chosen">
+      <h3>C. Tearsheet + Excel</h3>
+      <p>Overflow on the list. Download our template. Upload. Preview in the tearsheet. Confirm. Async job.</p>
+      <p class="bc-muted">Chosen. Meets Excel. Keeps Home. Uses Core React overlays. Preview is the product.</p>
+    </div>
+  </div>
+
+  <h3>Early structure, before chrome</h3>
+  <p>The paper version was a two-pane sheet: a dead left until a file existed, a right rail that never changed (instructions, template, cap, dropzone). That skeleton is still the hi-fi. What got added later was not layout - it was states: loading, 1-of-3 error review, continue-with-errors copy, confirm modal, toast, split lists, concurrent-job lock, no-match empty, missing-file banner.</p>
+
+  <h3>User flow</h3>
+  <div class="bc-flow">
+    <div class="bc-flow-step"><span class="bc-flow-n">01</span><b>Home · overflow · Bulk Create</b></div>
+    <div class="bc-flow-step"><span class="bc-flow-n">02</span><b>Download template, fill offline</b></div>
+    <div class="bc-flow-step"><span class="bc-flow-n">03</span><b>Upload one .xls / .xlsx</b></div>
+    <div class="bc-flow-step"><span class="bc-flow-n">04</span><b>Preview · repair uniqueness</b></div>
+    <div class="bc-flow-step"><span class="bc-flow-n">05</span><b>Confirm irreversible create</b></div>
+    <div class="bc-flow-step"><span class="bc-flow-n">06</span><b>Toast → success / fail lists · email</b></div>
+  </div>
+  <p>The happy path is not the only path. The design is the branches.</p>
+  <div class="bc-branches">
+    <div><b>No file</b>Keep the empty preview. Name the miss in the rail. Do not start a job.</div>
+    <div><b>No matching rows</b>Empty illustration, error banner, chip stays so they can replace the file.</div>
+    <div><b>Uniqueness errors</b>Review 1 of N. Continue allowed; those rows will not create unless fixed.</div>
+    <div><b>Job already running</b>Overflow item disabled. No second write against the same index.</div>
+    <div><b>Partial create</b>Two toasts, two lists, report download. Failure is a destination.</div>
+    <div><b>Left the page</b>Admin email: count, who ran it, when, View Projects.</div>
+  </div>
+
+  <h3>Testing - what feedback changed</h3>
+  <p>Clickable reviews with PM, engineering, and admin-shaped walkthroughs of the prototype. The layout barely moved. The rules did.</p>
+  <div class="bc-table-wrap">
+    <table class="bc-table">
+      <thead><tr><th>What we tried</th><th>What we heard</th><th>What shipped in the design</th></tr></thead>
+      <tbody>
+        <tr><td>Block Bulk Create until the file is clean</td><td>Don’t hold 93 good rows hostage.</td><td>Continue with errors. Banner says those N will not be created unless fixed.</td></tr>
+        <tr><td>Send every error back to Excel</td><td>Name and number are Procore rules. Don’t make me round-trip for those.</td><td>Inline edit + sequential popover in the preview.</td></tr>
+        <tr><td>Create inside the tearsheet</td><td>The page froze in people’s heads even in a prototype.</td><td>Confirm modal, then close the sheet, then a progress toast on Home.</td></tr>
+        <tr><td>One combined results table with status pills</td><td>After a partial run I have two jobs: use the new projects, and repair the rest.</td><td>Separate success and unsuccessful pages, plus a report.</td></tr>
+        <tr><td>Allow another bulk while one runs</td><td>Engineering: uniqueness collisions. Admins: “I thought I queued it.”</td><td>One in-flight job. Menu disabled with explanation.</td></tr>
+        <tr><td>Hide the 100 cap in help</td><td>People will paste the whole program list.</td><td>Info banner on the rail before upload.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="case-section" id="solution">
+  <p class="bc-kicker">The solution</p>
+  <h2 class="section-heading" data-index="Solution">Final designs</h2>
+  <p>High-fidelity screens from the Project Domain file, specified for Core React. The sequence below is the product as a person would use it.</p>
+
+  <h3>1. Entry on the list, not a rival CTA</h3>
+  <p>Create Project stays orange and first. Bulk Create sits in the list overflow next to Export - the other action that treats the portfolio as a set.</p>
+  <figure class="bc-fig">
+    <div class="gs-slot" data-slot="bulk-create-entry.jpg"></div>
+    <figcaption>Entry point. Power action, list-level, not a second primary button.</figcaption>
+  </figure>
+
+  <h3>2. Tearsheet as the workspace</h3>
+  <p>Complex, contextual work stays on Home. Left pane is preview. Right rail is the contract: how to fill, template download, 100-project cap, 5 MB dropzone, one job at a time. Bulk Create stays disabled until preview exists.</p>
+  <figure class="bc-fig">
+    <div class="gs-slot" data-slot="bulk-create-tearsheet.jpg"></div>
+    <figcaption>Empty state. The left is a promise. The right is the only work until a file arrives.</figcaption>
+  </figure>
+  <figure class="bc-fig">
+    <div class="gs-slot" data-slot="bulk-create-missing-file.jpg"></div>
+    <figcaption>Missing file. The empty preview holds. The rail names the miss. No guessed job.</figcaption>
+  </figure>
+
+  <h3>3. The template is a designed artifact</h3>
+  <p>Instructions live in the workbook because errors are born there. Required Project Name, uniqueness, case sensitivity, 100-row limit, and the rule that Procore cannot correct submitted data.</p>
+  <div class="bc-pair">
+    <figure class="bc-fig">
+      <div class="gs-slot" data-slot="bulk-create-template-instructions.jpg"></div>
+      <figcaption>Tab 1 - General Instructions.</figcaption>
+    </figure>
+    <figure class="bc-fig">
+      <div class="gs-slot" data-slot="bulk-create-template-projects.jpg"></div>
+      <figcaption>Tab 2 - Project List. One row, one project.</figcaption>
+    </figure>
+  </div>
+
+  <h3>4. Upload, then preview - never a blind write</h3>
+  <div class="bc-pair">
+    <figure class="bc-fig">
+      <div class="gs-slot" data-slot="bulk-create-uploading.jpg"></div>
+      <figcaption>Loading. File chip replaces the dropzone. Left pane says preview is in progress.</figcaption>
+    </figure>
+    <figure class="bc-fig">
+      <div class="gs-slot" data-slot="bulk-create-preview.jpg"></div>
+      <figcaption>Valid parse. Banner: 96 projects identified. Last look before commit.</figcaption>
+    </figure>
+  </div>
+  <figure class="bc-fig">
+    <div class="gs-slot" data-slot="bulk-create-no-projects.jpg"></div>
+    <figcaption>No match. Illustration, error banner, file still attached so they can replace it. The job never starts.</figcaption>
+  </figure>
+
+  <h3>5. Errors as a review pass</h3>
+  <p>Missing name, duplicate name, duplicate number. Highlighted cell, badge, popover in product language, next/back across the set. Continue is allowed; skipped rows are named in the banner.</p>
+  <figure class="bc-fig">
+    <div class="gs-slot" data-slot="bulk-create-errors.jpg"></div>
+    <figcaption>Three errors in 96 rows. Review walks 1 of 3. Agency without surprise.</figcaption>
+  </figure>
+
+  <h3>6. Confirm, then get out of the way</h3>
+  <p>A short modal on top of the tearsheet: count, irreversibility, Yes. Then the sheet closes. Home is the working surface again. Progress is a toast. A second bulk create is refused until this job ends.</p>
+  <figure class="bc-fig">
+    <div class="gs-slot" data-slot="bulk-create-confirm.jpg"></div>
+    <figcaption>Last gate. Overlay nesting stops at this one lightweight question.</figcaption>
+  </figure>
+  <div class="bc-pair">
+    <figure class="bc-fig">
+      <div class="gs-slot" data-slot="bulk-create-progress.jpg"></div>
+      <figcaption>In flight. File name, count, percent. List stays usable.</figcaption>
+    </figure>
+    <figure class="bc-fig">
+      <div class="gs-slot" data-slot="bulk-create-in-progress-block.jpg"></div>
+      <figcaption>One job. The menu tells the truth instead of queuing a collision.</figcaption>
+    </figure>
+  </div>
+
+  <h3>7. Split the outcome</h3>
+  <p>Completion is two destinations and a letter. Successful rows become projects you can open. Unsuccessful rows keep payload and reasons. The admin who left the tab still gets count, actor, and time.</p>
+  <div class="bc-pair">
+    <figure class="bc-fig">
+      <div class="gs-slot" data-slot="bulk-create-success-toast.jpg"></div>
+      <figcaption>What committed.</figcaption>
+    </figure>
+    <figure class="bc-fig">
+      <div class="gs-slot" data-slot="bulk-create-fail-toast.jpg"></div>
+      <figcaption>What did not - plus a report.</figcaption>
+    </figure>
+  </div>
+  <div class="bc-pair">
+    <figure class="bc-fig">
+      <div class="gs-slot" data-slot="bulk-create-success-list.jpg"></div>
+      <figcaption>Successful set. Searchable, linked, ready to work.</figcaption>
+    </figure>
+    <figure class="bc-fig">
+      <div class="gs-slot" data-slot="bulk-create-fail-list.jpg"></div>
+      <figcaption>Unsuccessful set. Inline reasons so the next file is a fix.</figcaption>
+    </figure>
+  </div>
+  <figure class="bc-fig">
+    <div class="gs-slot" data-slot="bulk-create-email.jpg"></div>
+    <figcaption>Admin email. The job is allowed to finish after they have left the page.</figcaption>
+  </figure>
+</section>
+
+<section class="case-section" id="highlights">
+  <p class="bc-kicker">The craft</p>
+  <h2 class="section-heading" data-index="Highlights">Highlights</h2>
+  <p class="case-hero-subtitle">The happy path is a file upload. The design work is in the states around it - how errors get walked, how a long job stays out of the way, and how the system tells the truth when some rows fail.</p>
+
+  <div class="bc-zoom-grid">
+    <article class="bc-zoom-card wide">
+      <div class="gs-slot" data-slot="bulk-create-zoom-error-stepper.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">The signature interaction</p>
+        <h3>1-of-N error stepper</h3>
+        <p>Ninety-six rows is too many to hunt. The first invalid cell opens a popover with the reason, a <strong>1 of 3</strong> counter, and Next / Back. Repair stays in the grid. The stepper is the difference between “we found errors” and “we will take you to them.”</p>
+      </div>
+    </article>
+
+    <article class="bc-zoom-card">
+      <div class="gs-slot" data-slot="bulk-create-zoom-error-banner.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">Partial success, named</p>
+        <h3>Continue with errors</h3>
+        <p>The banner does not block Create. It says the three bad rows will be skipped. That is a product decision: bulk create is allowed to be incomplete, as long as the user is told which rows will not land.</p>
+      </div>
+    </article>
+
+    <article class="bc-zoom-card">
+      <div class="gs-slot" data-slot="bulk-create-zoom-identified-banner.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">Parse before commit</p>
+        <h3>Identified, not created</h3>
+        <p>Green is not success. It is a count of what the file mapped to. Nothing is written until confirm. The language is deliberate - identified - so the preview never pretends to be the project list.</p>
+      </div>
+    </article>
+
+    <article class="bc-zoom-card">
+      <div class="gs-slot" data-slot="bulk-create-zoom-confirm.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">Friction where it belongs</p>
+        <h3>Irreversible, with a coffee break</h3>
+        <p>Confirm names the count, states that create cannot be undone, and sets the wait with a human line. The orange Yes is the only loud control in the whole flow. Everything before this was reversible; this is not.</p>
+      </div>
+    </article>
+
+    <article class="bc-zoom-card">
+      <div class="gs-slot" data-slot="bulk-create-zoom-progress.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">Stay on Home</p>
+        <h3>Non-blocking progress toast</h3>
+        <p>The tearsheet closes. A compact status sits on the list: filename, row count, percent. The user is not trapped in a spinner. Collapse is available because a 96-row job is allowed to take a minute.</p>
+      </div>
+    </article>
+
+    <article class="bc-zoom-card">
+      <div class="gs-slot" data-slot="bulk-create-zoom-success-toast.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">Close the loop</p>
+        <h3>Success with a way back in</h3>
+        <p>The toast names the file and the count, then offers View Projects. Outcome is not a dead-end message - it returns the user to the list they came from, now populated.</p>
+      </div>
+    </article>
+
+    <article class="bc-zoom-card">
+      <div class="gs-slot" data-slot="bulk-create-zoom-fail-toast.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">Split outcome</p>
+        <h3>Fail is not all-or-nothing</h3>
+        <p>One file, two cards: what landed and what did not. View opens the unsuccessful set. Report downloads the reasons. Partial create is the honest state for collisions the server only sees after commit.</p>
+      </div>
+    </article>
+
+    <article class="bc-zoom-card">
+      <div class="gs-slot" data-slot="bulk-create-zoom-fail-reasons.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">Reasons, not a dump</p>
+        <h3>Failure report</h3>
+        <p>Each failed row keeps its payload and an info popover of reasons. The admin can fix the workbook and come back. No opaque “job failed.”</p>
+      </div>
+    </article>
+
+    <article class="bc-zoom-card">
+      <div class="gs-slot" data-slot="bulk-create-zoom-rail.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">Guardrails in the empty state</p>
+        <h3>Cap, size, chip</h3>
+        <p>The 100-row cap is in a blue banner before anyone uploads. Five MB is in the intro. After attach, a chip with an × makes the file a first-class object - replaceable, not buried in a path string.</p>
+      </div>
+    </article>
+
+    <article class="bc-zoom-card">
+      <div class="gs-slot" data-slot="bulk-create-zoom-empty.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">Before the file</p>
+        <h3>Empty preview</h3>
+        <p>The left pane does not pretend to be a table. Illustration, heading, next step. Preview is earned. Until then, the rail is the work - template, cap, attach.</p>
+      </div>
+    </article>
+
+    <article class="bc-zoom-card">
+      <div class="gs-slot" data-slot="bulk-create-zoom-overflow.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">Discovery without clutter</p>
+        <h3>Overflow, not a primary button</h3>
+        <p>Bulk create is infrequent and high-stakes. It lives next to Export, not beside Create Project. Power users find it; the rest of Home stays a list.</p>
+      </div>
+    </article>
+
+    <article class="bc-zoom-card">
+      <div class="gs-slot" data-slot="bulk-create-zoom-email.jpg"></div>
+      <div class="bc-zoom-body">
+        <p class="bc-zoom-tag">If they walked away</p>
+        <h3>Admin email</h3>
+        <p>The coffee-break copy is a promise. The email keeps it: created vs failed, and a link back. Async jobs that only toast in-session fail the people who started them and left.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="case-section" id="choices">
+  <p class="bc-kicker">The solution</p>
+  <h2 class="section-heading" data-index="Choices">Design choices</h2>
+  <p>This is not a custom bulk-import aesthetic. It is Procore, used with intent.</p>
+
+  <h3>Layout</h3>
+  <ul>
+    <li><strong>Tearsheet, not a full page,</strong> because the Project List is the context being changed. Peripheral view of Home reduces “where did I just go?”</li>
+    <li><strong>Two panes,</strong> not a stepper, because instructions must stay visible while preview changes. The rail is stable; the left is stateful.</li>
+    <li><strong>Modal only for confirm,</strong> because irreversibility needs focus, and a 96-row table does not belong in a dialog.</li>
+    <li><strong>Toast for the job,</strong> because duration is measured in minutes and Home is still the work.</li>
+  </ul>
+
+  <h3>Color, type, components</h3>
+  <ul>
+    <li><strong>Primary orange</strong> is reserved for Create Project, Bulk Create, and Yes. That is the only write. Secondary and ghost stay gray so bulk does not shout louder than one-off create.</li>
+    <li><strong>Blue</strong> is interactive text, focus, and info banners (cap, identified count). <strong>Red</strong> is error only - cell, badge, banner, unsuccessful toast. No decorative red.</li>
+    <li><strong>Type</strong> follows Core React: 24/32 page titles, 14/20 body, 12/16 table. The case study uses a serif; the product does not.</li>
+    <li><strong>Table as preview</strong> because the mental model is rows in Excel. Same columns they just filled: name, number, stage, program.</li>
+    <li><strong>Error popover with 1 of N</strong> because a wall of 96 highlighted rows is not a review. Spellcheck, not a dump.</li>
+  </ul>
+
+  <h3>Content</h3>
+  <ul>
+    <li>Headers in title case. Body and errors in sentence case. Verbs from the product glossary: Create, Download, Attach, View - not Import, Submit, Process.</li>
+    <li>Errors say the rule and the next step: “This project name already exists. Procore only permits projects with unique names.”</li>
+    <li>Continue-with-errors copy is explicit about loss: those projects will not be created unless you fix them.</li>
+    <li>Confirm names the count and the word irreversible. No checkbox buried in helper text.</li>
+  </ul>
+
+  <h3>Accessibility</h3>
+  <ul>
+    <li>Overflow and close controls have accessible names. Error inputs have labels. Confirm is a modal with title and labelled actions.</li>
+    <li>Focus moves into the tearsheet on open and returns to the overflow trigger on close.</li>
+    <li>Progress is not color-only: count text plus percent plus bar.</li>
+    <li>Error navigation is buttons (Back / Next), not hover-only dots.</li>
+  </ul>
+
+  <div class="bc-two" style="margin-top:12px;">
+    <div class="bc-principle">
+      <b>Meet Excel. Do not become Excel.</b>
+      <span>Authoring stays in the tool they already use. Procore owns validation, preview, and commit.</span>
+    </div>
+    <div class="bc-principle">
+      <b>Partial success is success</b>
+      <span>Enterprise bulk jobs fail some rows. Design the split as carefully as the happy path.</span>
+    </div>
+  </div>
+</section>
+
+<section class="case-section" id="impact">
+  <p class="bc-kicker">Close</p>
+  <h2 class="section-heading" data-index="Impact">Impact and what I would measure</h2>
+  <p>This is a designed, reviewable interaction model - not a shipped experiment with lift numbers. I would not claim production impact. I would instrument these:</p>
+  <ul>
+    <li>Time from company create to N projects on the list (target: hours, not days).</li>
+    <li>Percent of bulk jobs with zero uniqueness errors on first upload (template quality).</li>
+    <li>Rows committed vs skipped vs failed after confirm.</li>
+    <li>Recovery: unsuccessful-list views, report downloads, second-attempt success.</li>
+    <li>Support tickets tagged duplicate project or bulk import.</li>
+    <li>Concurrent-job blocks (are people actually double-clicking?).</li>
+  </ul>
+
+  <h3>What I would do next</h3>
+  <ul>
+    <li>Map company custom fields into the template without exploding the sheet.</li>
+    <li>Permissions: who may bulk create, who receives the email.</li>
+    <li>Idempotency if the toast is dismissed mid-job.</li>
+    <li>A true dry-run that never writes.</li>
+    <li>Queued multi-batch for PMOs who still live in 400-row workbooks - the 100 cap is honest; it may need a sequel.</li>
+  </ul>
+
+  <h3>What I would keep in a portfolio of this work</h3>
+  <p>Not “I designed an upload.” The tension: speed of standing up a portfolio versus the cost of duplicate, irreversible, or silent failure. The user who lives in Excel. The job of trusted commit. The branches - missing file, no match, continue-with-errors, one job at a time, split results. The system choice to stay on Core React so engineering can build it.</p>
+  <p class="bc-note">Bulk Create Projects · Procore company Home · hi-fi from the Project Domain Q1 26 file. Caps in the comps (100 projects, 5 MB, 96 identified) are designed constraints, not production metrics.</p>
+</section>
+
+              <nav class="project-footer-nav">
+                <a href="project-saathi.html">← Previous</a>
+                <a href="../projects.html">Next →</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="site-footer-brand">Eesha Explores</p>
+      <nav class="site-footer-nav" aria-label="Footer">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <p class="site-footer-copy">© 2026 Eesha Deshpande</p>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="../js/project-nav.js"></script>
+</body>
+</html>

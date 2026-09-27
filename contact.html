@@ -3,60 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Your Name — senior product designer available for European companies.">
-  <title>Contact — Your Name</title>
+  <meta name="description" content="Contact Eesha Deshpande - senior product designer.">
+  <title>Contact - Eesha Deshpande</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="site-page">
+  <div class="grid-bg" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">Your Name</a>
-      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
-      <nav class="site-nav" id="site-nav" data-nav aria-label="Main">
-        <ul>
-          <li><a href="index.html">Work</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html" aria-current="page">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
-    <section class="section container">
-      <h1>Contact</h1>
-      <p class="lead">Open to senior product design roles and select contract work with companies in the UK, EU, and Nordics.</p>
-
-      <ul class="contact-list">
-        <li>
-          <div class="placeholder placeholder--icon" role="img" aria-label="Placeholder for icon-email.svg" style="display: inline-flex; vertical-align: middle; margin-right: 0.5rem;">
-            <span class="placeholder-label">icon-email.svg</span>
-          </div>
-          <a href="mailto:hello@yourname.design">hello@yourname.design</a>
-        </li>
-        <li>
-          <div class="placeholder placeholder--icon" role="img" aria-label="Placeholder for icon-linkedin.svg" style="display: inline-flex; vertical-align: middle; margin-right: 0.5rem;">
-            <span class="placeholder-label">icon-linkedin.svg</span>
-          </div>
-          <a href="https://linkedin.com/in/yourprofile" rel="noopener noreferrer">LinkedIn</a>
-        </li>
+  <div class="site-chrome-wrap">
+    <div class="site-chrome" id="main-nav">
+      <ul class="nav-links" id="site-nav" data-nav>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html" class="current">Contact</a></li>
       </ul>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">Menu</button>
+    </div>
+  </div>
 
-      <p style="margin-top: var(--space-lg); color: var(--color-text-muted); font-size: 0.9375rem;">
-        Typical response within 2 business days. Happy to share a CV or walk through case studies on a call.
-      </p>
-    </section>
+  <main id="main" class="page-content">
+    <div class="contact-page-wrap">
+      <div class="contact-card">
+    <div class="contact-wrap">
+      <div class="contact-photo-wrap">
+        <img src="images/about-portrait.png" alt="Eesha Deshpande" class="contact-photo-img">
+      </div>
+      <div class="contact-text">
+        <h1>Hello! 👋</h1>
+        <p>Thank you for visiting my website!</p>
+        <p>I'm Eesha, a human-centered designer passionate about impactful design. I turn complex business workflows into scalable digital experiences across B2B SaaS, public health, and enterprise HR.</p>
+        <p>If you have questions, inquiries, or just want to connect - feel free to reach out.</p>
+        <div class="contact-links">
+          <a href="mailto:deshpande.eesha@gmail.com" class="contact-link">deshpande.eesha@gmail.com</a>
+          <a href="https://www.linkedin.com/in/eeshad/" class="contact-link" rel="noopener noreferrer">linkedin.com/in/eeshad</a>
+        </div>
+        <div class="contact-cta-row">
+          <a href="mailto:deshpande.eesha@gmail.com" class="btn-pill btn-pill-dark">Send an email</a>
+          <a href="https://www.linkedin.com/in/eeshad/" class="btn-yellow-outline" rel="noopener noreferrer">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 Your Name · Available for remote roles with European companies</p>
-      <p><a href="index.html">View work</a></p>
+    <div class="site-footer-inner">
+      <p class="site-footer-brand">Eesha Explores</p>
+      <nav class="site-footer-nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="site-footer-copy">© 2026 Eesha Deshpande</p>
     </div>
   </footer>
 

@@ -43,18 +43,19 @@
     revealItems.forEach((item) => item.classList.add("is-visible"));
   }
 
-  document.querySelectorAll(".experience-item").forEach((item) => {
+  document.querySelectorAll("[data-experience-list] .experience-item").forEach((item) => {
     const trigger = item.querySelector(".experience-trigger");
     const panel = item.querySelector(".experience-panel");
     if (!trigger || !panel) return;
 
     trigger.addEventListener("click", () => {
       const isOpen = trigger.getAttribute("aria-expanded") === "true";
+      const list = item.closest("[data-experience-list]");
 
-      document.querySelectorAll(".experience-trigger").forEach((otherTrigger) => {
+      list.querySelectorAll(".experience-trigger").forEach((otherTrigger) => {
         otherTrigger.setAttribute("aria-expanded", "false");
       });
-      document.querySelectorAll(".experience-panel").forEach((otherPanel) => {
+      list.querySelectorAll(".experience-panel").forEach((otherPanel) => {
         otherPanel.hidden = true;
       });
 
@@ -65,77 +66,100 @@
     });
   });
 
+  document.querySelectorAll(".writing-trigger").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const isOpen = trigger.getAttribute("aria-expanded") === "true";
+      const panel = document.getElementById(trigger.getAttribute("aria-controls"));
+      if (!panel) return;
+
+      trigger.setAttribute("aria-expanded", String(!isOpen));
+      panel.hidden = isOpen;
+    });
+  });
+
   const canvas = document.getElementById("doodle-canvas");
   const clearBtn = document.getElementById("doodle-clear");
-  if (!canvas || !clearBtn) return;
+  const colorButtons = document.querySelectorAll(".doodle-color");
 
-  const ctx = canvas.getContext("2d");
-  let drawing = false;
-  let lastX = 0;
-  let lastY = 0;
+  if (canvas && clearBtn) {
+    const ctx = canvas.getContext("2d");
+    let drawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    let strokeColor = "#111111";
 
-  function resizeCanvas() {
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = Math.floor(rect.width * window.devicePixelRatio);
-    canvas.height = Math.floor(rect.height * window.devicePixelRatio);
-    ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
-    ctx.strokeStyle = "#111111";
-    ctx.lineWidth = 2.5;
-  }
+    colorButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        strokeColor = btn.dataset.color;
+        colorButtons.forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        ctx.strokeStyle = strokeColor;
+      });
+    });
 
-  function getPoint(event) {
-    const rect = canvas.getBoundingClientRect();
-    if (event.touches && event.touches[0]) {
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = Math.floor(rect.width * window.devicePixelRatio);
+      canvas.height = Math.floor(rect.height * window.devicePixelRatio);
+      ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      ctx.strokeStyle = strokeColor;
+      ctx.lineWidth = 2.5;
+    }
+
+    function getPoint(event) {
+      const rect = canvas.getBoundingClientRect();
+      if (event.touches && event.touches[0]) {
+        return {
+          x: event.touches[0].clientX - rect.left,
+          y: event.touches[0].clientY - rect.top,
+        };
+      }
       return {
-        x: event.touches[0].clientX - rect.left,
-        y: event.touches[0].clientY - rect.top,
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
       };
     }
-    return {
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top,
-    };
+
+    function startDraw(event) {
+      drawing = true;
+      const point = getPoint(event);
+      lastX = point.x;
+      lastY = point.y;
+      event.preventDefault();
+    }
+
+    function draw(event) {
+      if (!drawing) return;
+      const point = getPoint(event);
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(point.x, point.y);
+      ctx.stroke();
+      lastX = point.x;
+      lastY = point.y;
+      event.preventDefault();
+    }
+
+    function stopDraw() {
+      drawing = false;
+    }
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    canvas.addEventListener("mousedown", startDraw);
+    canvas.addEventListener("mousemove", draw);
+    canvas.addEventListener("mouseup", stopDraw);
+    canvas.addEventListener("mouseleave", stopDraw);
+    canvas.addEventListener("touchstart", startDraw, { passive: false });
+    canvas.addEventListener("touchmove", draw, { passive: false });
+    canvas.addEventListener("touchend", stopDraw);
+    clearBtn.addEventListener("click", clearCanvas);
   }
-
-  function startDraw(event) {
-    drawing = true;
-    const point = getPoint(event);
-    lastX = point.x;
-    lastY = point.y;
-    event.preventDefault();
-  }
-
-  function draw(event) {
-    if (!drawing) return;
-    const point = getPoint(event);
-    ctx.beginPath();
-    ctx.moveTo(lastX, lastY);
-    ctx.lineTo(point.x, point.y);
-    ctx.stroke();
-    lastX = point.x;
-    lastY = point.y;
-    event.preventDefault();
-  }
-
-  function stopDraw() {
-    drawing = false;
-  }
-
-  function clearCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-
-  resizeCanvas();
-  window.addEventListener("resize", resizeCanvas);
-
-  canvas.addEventListener("mousedown", startDraw);
-  canvas.addEventListener("mousemove", draw);
-  canvas.addEventListener("mouseup", stopDraw);
-  canvas.addEventListener("mouseleave", stopDraw);
-  canvas.addEventListener("touchstart", startDraw, { passive: false });
-  canvas.addEventListener("touchmove", draw, { passive: false });
-  canvas.addEventListener("touchend", stopDraw);
-  clearBtn.addEventListener("click", clearCanvas);
 })();
