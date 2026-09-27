@@ -2509,6 +2509,16 @@ tr:hover .ci{transform:scale(1.12)}
   flex-shrink: 0;
 }
 
+.idp-plain-num {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--idp-accent);
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
 .idp-text-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2610,12 +2620,12 @@ tr:hover .ci{transform:scale(1.12)}
 .idp-process-art-wrap {
   width: 100%;
   height: 210px;
-  background: #F1F3F8;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 12px 0 16px;
-  padding: 16px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -2915,6 +2925,7 @@ tr:hover .ci{transform:scale(1.12)}
   width: 88px;
   height: 88px;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 
 .idp-learn-text p:first-child {
