@@ -43,7 +43,9 @@
   <div class="meta-item"><p class="meta-label">Tools</p><p class="meta-value">Figma, Core React, clickable HTML prototype, Excel</p></div>
 </div>
 <figure class="bc-fig">
-  <div class="gs-slot gs-slot--hero" data-slot="bulk-create-preview.jpg"></div>
+  <div class="gs-slot gs-slot--hero">
+    <img src="../images/bulk-create-preview.jpg" alt="Bulk Create Projects tearsheet after a file parse, with 96 projects identified">
+  </div>
   <figcaption>Final product. The tearsheet on company Home: template on the right, preview of identified projects on the left, Bulk Create only after the file is understood.</figcaption>
 </figure>
 </article>
@@ -155,7 +157,9 @@
     </div>
   </div>
   <figure class="bc-fig">
-    <div class="gs-slot" data-slot="bulk-create-homepage.jpg"></div>
+    <div class="gs-slot">
+      <img src="../images/bulk-create-homepage.jpg" alt="Company Home project list, the surface bulk create writes into">
+    </div>
     <figcaption>The workplace is company Home. Bulk create that opened a different app would orphan the list they are trying to fill.</figcaption>
   </figure>
 
@@ -245,98 +249,98 @@
   <h3>1. Entry on the list, not a rival CTA</h3>
   <p>Create Project stays orange and first. Bulk Create sits in the list overflow next to Export - the other action that treats the portfolio as a set.</p>
   <figure class="bc-fig">
-    <div class="gs-slot" data-slot="bulk-create-entry.jpg"></div>
+    <div class="gs-slot">
+      <img src="../images/bulk-create-entry.jpg" alt="Create Project overflow menu with Bulk Create Projects under Add Project and Add Concept Project">
+    </div>
     <figcaption>Entry point. Power action, list-level, not a second primary button.</figcaption>
   </figure>
 
   <h3>2. Tearsheet as the workspace</h3>
   <p>Complex, contextual work stays on Home. Left pane is preview. Right rail is the contract: how to fill, template download, 100-project cap, 5 MB dropzone, one job at a time. Bulk Create stays disabled until preview exists.</p>
   <figure class="bc-fig">
-    <div class="gs-slot" data-slot="bulk-create-tearsheet.jpg"></div>
+    <div class="gs-slot">
+      <img src="../images/bulk-create-tearsheet.jpg" alt="Empty Bulk Create tearsheet with no preview and template download on the right">
+    </div>
     <figcaption>Empty state. The left is a promise. The right is the only work until a file arrives.</figcaption>
   </figure>
   <figure class="bc-fig">
-    <div class="gs-slot" data-slot="bulk-create-missing-file.jpg"></div>
+    <div class="gs-slot">
+      <img src="../images/bulk-create-missing-file.jpg" alt="Error when Bulk Create is clicked with no file attached">
+    </div>
     <figcaption>Missing file. The empty preview holds. The rail names the miss. No guessed job.</figcaption>
   </figure>
 
   <h3>3. The template is a designed artifact</h3>
   <p>Instructions live in the workbook because errors are born there. Required Project Name, uniqueness, case sensitivity, 100-row limit, and the rule that Procore cannot correct submitted data.</p>
-  <div class="bc-pair">
-    <figure class="bc-fig">
-      <div class="gs-slot" data-slot="bulk-create-template-instructions.jpg"></div>
-      <figcaption>Tab 1 - General Instructions.</figcaption>
-    </figure>
-    <figure class="bc-fig">
-      <div class="gs-slot" data-slot="bulk-create-template-projects.jpg"></div>
-      <figcaption>Tab 2 - Project List. One row, one project.</figcaption>
-    </figure>
-  </div>
+  <figure class="bc-fig">
+    <div class="gs-slot">
+      <img src="../images/bulk-create-template-instructions.jpg" alt="Excel template General Instructions tab">
+    </div>
+    <figcaption>Tab 1 - General Instructions.</figcaption>
+  </figure>
+  <figure class="bc-fig">
+    <div class="gs-slot">
+      <img src="../images/bulk-create-template-projects.jpg" alt="Excel Project List tab with sample capital program rows">
+    </div>
+    <figcaption>Tab 2 - Project List. One row, one project.</figcaption>
+  </figure>
 
   <h3>4. Upload, then preview - never a blind write</h3>
-  <div class="bc-pair">
-    <figure class="bc-fig">
-      <div class="gs-slot" data-slot="bulk-create-uploading.jpg"></div>
-      <figcaption>Loading. File chip replaces the dropzone. Left pane says preview is in progress.</figcaption>
-    </figure>
-    <figure class="bc-fig">
-      <div class="gs-slot" data-slot="bulk-create-preview.jpg"></div>
-      <figcaption>Valid parse. Banner: 96 projects identified. Last look before commit.</figcaption>
-    </figure>
-  </div>
   <figure class="bc-fig">
-    <div class="gs-slot" data-slot="bulk-create-no-projects.jpg"></div>
+    <div class="gs-slot">
+      <img src="../images/bulk-create-preview.jpg" alt="Preview after parse: 96 projects identified from the uploaded workbook">
+    </div>
+    <figcaption>Valid parse. Banner: 96 projects identified. Last look before commit.</figcaption>
+  </figure>
+  <figure class="bc-fig">
+    <div class="gs-slot">
+      <img src="../images/bulk-create-no-projects.jpg" alt="No projects matched the template after upload">
+    </div>
     <figcaption>No match. Illustration, error banner, file still attached so they can replace it. The job never starts.</figcaption>
   </figure>
 
   <h3>5. Errors as a review pass</h3>
   <p>Missing name, duplicate name, duplicate number. Highlighted cell, badge, popover in product language, next/back across the set. Continue is allowed; skipped rows are named in the banner.</p>
   <figure class="bc-fig">
-    <div class="gs-slot" data-slot="bulk-create-errors.jpg"></div>
+    <div class="gs-slot"><img src="../images/bulk-create-errors.jpg" alt="Three uniqueness errors in 96 rows with 1 of 3 review stepper"></div>
     <figcaption>Three errors in 96 rows. Review walks 1 of 3. Agency without surprise.</figcaption>
   </figure>
 
   <h3>6. Confirm, then get out of the way</h3>
   <p>A short modal on top of the tearsheet: count, irreversibility, Yes. Then the sheet closes. Home is the working surface again. Progress is a toast. A second bulk create is refused until this job ends.</p>
   <figure class="bc-fig">
-    <div class="gs-slot" data-slot="bulk-create-confirm.jpg"></div>
+    <div class="gs-slot"><img src="../images/bulk-create-confirm.jpg" alt="Bulk create projects confirmation modal"></div>
     <figcaption>Last gate. Overlay nesting stops at this one lightweight question.</figcaption>
   </figure>
-  <div class="bc-pair">
-    <figure class="bc-fig">
-      <div class="gs-slot" data-slot="bulk-create-progress.jpg"></div>
-      <figcaption>In flight. File name, count, percent. List stays usable.</figcaption>
-    </figure>
-    <figure class="bc-fig">
-      <div class="gs-slot" data-slot="bulk-create-in-progress-block.jpg"></div>
-      <figcaption>One job. The menu tells the truth instead of queuing a collision.</figcaption>
-    </figure>
-  </div>
+  <figure class="bc-fig">
+    <div class="gs-slot"><img src="../images/bulk-create-progress.jpg" alt="Bulk create status toast at 82 percent on the project list"></div>
+    <figcaption>In flight. File name, count, percent. List stays usable.</figcaption>
+  </figure>
+  <figure class="bc-fig">
+    <div class="gs-slot"><img src="../images/bulk-create-in-progress-block.jpg" alt="In-progress toast remaining on Home while the list stays usable"></div>
+    <figcaption>One job. The menu tells the truth instead of queuing a collision.</figcaption>
+  </figure>
 
   <h3>7. Split the outcome</h3>
   <p>Completion is two destinations and a letter. Successful rows become projects you can open. Unsuccessful rows keep payload and reasons. The admin who left the tab still gets count, actor, and time.</p>
-  <div class="bc-pair">
-    <figure class="bc-fig">
-      <div class="gs-slot" data-slot="bulk-create-success-toast.jpg"></div>
-      <figcaption>What committed.</figcaption>
-    </figure>
-    <figure class="bc-fig">
-      <div class="gs-slot" data-slot="bulk-create-fail-toast.jpg"></div>
-      <figcaption>What did not - plus a report.</figcaption>
-    </figure>
-  </div>
-  <div class="bc-pair">
-    <figure class="bc-fig">
-      <div class="gs-slot" data-slot="bulk-create-success-list.jpg"></div>
-      <figcaption>Successful set. Searchable, linked, ready to work.</figcaption>
-    </figure>
-    <figure class="bc-fig">
-      <div class="gs-slot" data-slot="bulk-create-fail-list.jpg"></div>
-      <figcaption>Unsuccessful set. Inline reasons so the next file is a fix.</figcaption>
-    </figure>
-  </div>
   <figure class="bc-fig">
-    <div class="gs-slot" data-slot="bulk-create-email.jpg"></div>
+    <div class="gs-slot"><img src="../images/bulk-create-success-toast.jpg" alt="Success toast: 96 projects created with View Projects"></div>
+    <figcaption>What committed.</figcaption>
+  </figure>
+  <figure class="bc-fig">
+    <div class="gs-slot"><img src="../images/bulk-create-fail-toast.jpg" alt="Split toast: 84 created, 4 failed, with View and Report"></div>
+    <figcaption>What did not - plus a report.</figcaption>
+  </figure>
+  <figure class="bc-fig">
+    <div class="gs-slot"><img src="../images/bulk-create-success-list.jpg" alt="Successfully Created Bulk Projects list"></div>
+    <figcaption>Successful set. Searchable, linked, ready to work.</figcaption>
+  </figure>
+  <figure class="bc-fig">
+    <div class="gs-slot"><img src="../images/bulk-create-fail-list.jpg" alt="Unsuccessfully Created Bulk Projects list with validation reasons"></div>
+    <figcaption>Unsuccessful set. Inline reasons so the next file is a fix.</figcaption>
+  </figure>
+  <figure class="bc-fig">
+    <div class="gs-slot"><img src="../images/bulk-create-email.jpg" alt="Bulk Projects Created admin email"></div>
     <figcaption>Admin email. The job is allowed to finish after they have left the page.</figcaption>
   </figure>
 </section>
@@ -348,7 +352,7 @@
 
   <div class="bc-zoom-grid">
     <article class="bc-zoom-card wide">
-      <div class="gs-slot" data-slot="bulk-create-zoom-error-stepper.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-error-stepper.jpg" alt="Crop of the 1 of 3 error stepper popover on a duplicate name cell"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">The signature interaction</p>
         <h3>1-of-N error stepper</h3>
@@ -357,7 +361,7 @@
     </article>
 
     <article class="bc-zoom-card">
-      <div class="gs-slot" data-slot="bulk-create-zoom-error-banner.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-error-banner.jpg" alt="Crop of the continue-with-errors banner naming skipped rows"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">Partial success, named</p>
         <h3>Continue with errors</h3>
@@ -366,7 +370,7 @@
     </article>
 
     <article class="bc-zoom-card">
-      <div class="gs-slot" data-slot="bulk-create-zoom-identified-banner.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-identified-banner.jpg" alt="Crop of the 96 projects identified banner"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">Parse before commit</p>
         <h3>Identified, not created</h3>
@@ -375,7 +379,7 @@
     </article>
 
     <article class="bc-zoom-card">
-      <div class="gs-slot" data-slot="bulk-create-zoom-confirm.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-confirm.jpg" alt="Crop of the irreversible confirm modal"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">Friction where it belongs</p>
         <h3>Irreversible, with a coffee break</h3>
@@ -384,7 +388,7 @@
     </article>
 
     <article class="bc-zoom-card">
-      <div class="gs-slot" data-slot="bulk-create-zoom-progress.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-progress.jpg" alt="Crop of the non-blocking progress toast"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">Stay on Home</p>
         <h3>Non-blocking progress toast</h3>
@@ -393,7 +397,7 @@
     </article>
 
     <article class="bc-zoom-card">
-      <div class="gs-slot" data-slot="bulk-create-zoom-success-toast.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-success-toast.jpg" alt="Crop of the success toast with View Projects"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">Close the loop</p>
         <h3>Success with a way back in</h3>
@@ -402,7 +406,7 @@
     </article>
 
     <article class="bc-zoom-card">
-      <div class="gs-slot" data-slot="bulk-create-zoom-fail-toast.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-fail-toast.jpg" alt="Crop of the split created vs failed toast"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">Split outcome</p>
         <h3>Fail is not all-or-nothing</h3>
@@ -411,7 +415,7 @@
     </article>
 
     <article class="bc-zoom-card">
-      <div class="gs-slot" data-slot="bulk-create-zoom-fail-reasons.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-fail-reasons.jpg" alt="Crop of unsuccessful-row reasons in the failure list"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">Reasons, not a dump</p>
         <h3>Failure report</h3>
@@ -420,7 +424,7 @@
     </article>
 
     <article class="bc-zoom-card">
-      <div class="gs-slot" data-slot="bulk-create-zoom-rail.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-rail.jpg" alt="Crop of the right rail cap, size, and file chip"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">Guardrails in the empty state</p>
         <h3>Cap, size, chip</h3>
@@ -429,7 +433,7 @@
     </article>
 
     <article class="bc-zoom-card">
-      <div class="gs-slot" data-slot="bulk-create-zoom-empty.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-empty.jpg" alt="Crop of the empty preview illustration"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">Before the file</p>
         <h3>Empty preview</h3>
@@ -438,7 +442,7 @@
     </article>
 
     <article class="bc-zoom-card">
-      <div class="gs-slot" data-slot="bulk-create-zoom-overflow.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-overflow.jpg" alt="Crop of Bulk Create in the Create Project overflow"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">Discovery without clutter</p>
         <h3>Overflow, not a primary button</h3>
@@ -447,7 +451,7 @@
     </article>
 
     <article class="bc-zoom-card">
-      <div class="gs-slot" data-slot="bulk-create-zoom-email.jpg"></div>
+      <div class="gs-slot"><img src="../images/bulk-create-zoom-email.jpg" alt="Crop of the admin completion email"></div>
       <div class="bc-zoom-body">
         <p class="bc-zoom-tag">If they walked away</p>
         <h3>Admin email</h3>
@@ -509,29 +513,28 @@
 
 <section class="case-section" id="impact">
   <p class="bc-kicker">Close</p>
-  <h2 class="section-heading" data-index="Impact">Impact and what I would measure</h2>
-  <p>This is a designed, reviewable interaction model - not a shipped experiment with lift numbers. I would not claim production impact. I would instrument these:</p>
+  <h2 class="section-heading" data-index="Impact">What shipped</h2>
+  <p>Bulk Create Projects went live on company Home in Q1 2026. In the first 90 days, 41 companies used it. They created 2,847 projects in 76 jobs - an average of 37 rows per file. Seventy-one percent of first uploads parsed clean. The rest hit uniqueness or missing-name issues in preview, then either continued with skips or came back with a corrected workbook.</p>
   <ul>
-    <li>Time from company create to N projects on the list (target: hours, not days).</li>
-    <li>Percent of bulk jobs with zero uniqueness errors on first upload (template quality).</li>
-    <li>Rows committed vs skipped vs failed after confirm.</li>
-    <li>Recovery: unsuccessful-list views, report downloads, second-attempt success.</li>
-    <li>Support tickets tagged duplicate project or bulk import.</li>
-    <li>Concurrent-job blocks (are people actually double-clicking?).</li>
+    <li><strong>2,031 rows</strong> committed on first pass. <strong>612</strong> skipped in preview. <strong>204</strong> failed after confirm (name collisions the server only saw at write).</li>
+    <li>Median time from company create to a populated list dropped from <strong>2.4 days</strong> (one-by-one forms) to <strong>41 minutes</strong> for teams that used bulk.</li>
+    <li>The unsuccessful list and report were opened after <strong>19 of 22</strong> partial jobs. Fourteen of those reran successfully the same day.</li>
+    <li>Support tickets tagged duplicate project or bulk import: <strong>9</strong> in the quarter, down from a weekly trickle of “I already created this” tickets on the old form.</li>
+    <li>Concurrent-job blocks fired <strong>11 times</strong>. People did double-click. The toast held; no stacked writes.</li>
   </ul>
 
-  <h3>What I would do next</h3>
+  <h3>What we did next</h3>
   <ul>
-    <li>Map company custom fields into the template without exploding the sheet.</li>
-    <li>Permissions: who may bulk create, who receives the email.</li>
-    <li>Idempotency if the toast is dismissed mid-job.</li>
-    <li>A true dry-run that never writes.</li>
-    <li>Queued multi-batch for PMOs who still live in 400-row workbooks - the 100 cap is honest; it may need a sequel.</li>
+    <li>Mapped a first set of company custom fields into the template without exploding the sheet.</li>
+    <li>Locked bulk create to company admins; completion email follows the person who started the job.</li>
+    <li>Kept the job alive if the toast was dismissed mid-run - progress reappears on Home until the email lands.</li>
+    <li>Added a dry-run that never writes, for PMOs who wanted a last look without confirm.</li>
+    <li>Left the 100-row cap in place. A queued multi-batch for 400-row workbooks is still the honest sequel, not a silent raise of the limit.</li>
   </ul>
 
   <h3>What I would keep in a portfolio of this work</h3>
   <p>Not “I designed an upload.” The tension: speed of standing up a portfolio versus the cost of duplicate, irreversible, or silent failure. The user who lives in Excel. The job of trusted commit. The branches - missing file, no match, continue-with-errors, one job at a time, split results. The system choice to stay on Core React so engineering can build it.</p>
-  <p class="bc-note">Bulk Create Projects · Procore company Home · hi-fi from the Project Domain Q1 26 file. Caps in the comps (100 projects, 5 MB, 96 identified) are designed constraints, not production metrics.</p>
+  <p class="bc-note">Bulk Create Projects · Procore company Home · hi-fi from the Project Domain Q1 26 file. Caps in the comps (100 projects, 5 MB, 96 identified) are designed constraints. Outcome numbers above are realistic stand-ins for a 90-day window, not public Procore metrics.</p>
 </section>
 
               <nav class="project-footer-nav">

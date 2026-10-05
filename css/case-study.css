@@ -3679,8 +3679,40 @@ tr:hover .ci{transform:scale(1.12)}
   margin: 0;
 }
 
-.procore-shell .bc-fig .gs-slot--hero {
-  min-height: 280px;
+.procore-shell .bc-fig .gs-slot:has(img),
+.procore-shell .bc-zoom-card .gs-slot:has(img) {
+  background: #F4F5F7;
+  border: none;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.procore-shell .bc-fig .gs-slot:has(img)::after,
+.procore-shell .bc-zoom-card .gs-slot:has(img)::after {
+  content: none;
+}
+
+.procore-shell .bc-fig .gs-slot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: auto;
+}
+
+.procore-shell .bc-zoom-card .gs-slot img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: top center;
+  display: block;
+  image-rendering: auto;
+  background: #f4f5f7;
+}
+
+.procore-shell .bc-zoom-card.wide .gs-slot img {
+  max-height: none;
 }
 
 .procore-shell .bc-fig figcaption {
@@ -3703,7 +3735,7 @@ tr:hover .ci{transform:scale(1.12)}
 
 .procore-shell .bc-zoom-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 22px;
   margin: 28px 0 8px;
 }
@@ -3716,7 +3748,7 @@ tr:hover .ci{transform:scale(1.12)}
 }
 
 .procore-shell .bc-zoom-card.wide {
-  grid-column: 1 / -1;
+  grid-column: auto;
 }
 
 .procore-shell .bc-zoom-body {
