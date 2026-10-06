@@ -162,4 +162,20 @@
     canvas.addEventListener("touchend", stopDraw);
     clearBtn.addEventListener("click", clearCanvas);
   }
+
+  const skipScreenProgress = /logo|challenge-circle|challenge-photo|pm|icon|illust|process-img|p-avatar/;
+  document.querySelectorAll(".img-slot img, .hero-image-slot img").forEach((img) => {
+    const slot = img.closest(".img-slot, .hero-image-slot");
+    if (!slot) return;
+    if (slot.closest(".process-card, .challenge-card, .procore-row--logo, .pm-highlight")) return;
+    if ([...slot.classList].some((cls) => skipScreenProgress.test(cls))) return;
+    slot.classList.add("screen-frame");
+    const done = () => slot.classList.add("is-loaded");
+    if (img.complete && img.naturalWidth) {
+      done();
+      return;
+    }
+    img.addEventListener("load", done, { once: true });
+    img.addEventListener("error", done, { once: true });
+  });
 })();
