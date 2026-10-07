@@ -1254,7 +1254,7 @@ footer {
   font-weight: 500;
   color: rgba(0, 0, 0, 0.72);
   line-height: 1.55;
-  max-width: 28rem;
+  max-width: 38rem;
   margin: 0 auto 1.5rem;
 }
 
@@ -1362,6 +1362,12 @@ footer {
   margin-right: auto;
 }
 
+.projects-more-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
 .work-card {
   display: flex;
   flex-direction: column;
@@ -1386,7 +1392,7 @@ footer {
   width: 100%;
   overflow: hidden;
   border-radius: 14px 14px 0 0;
-  background: #f1efe9;
+  background: #000000;
 }
 
 .work-card-image img {
