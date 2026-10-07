@@ -3079,6 +3079,7 @@ tr:hover .ci{transform:scale(1.12)}
   --gs: #3D6B4A;
   --gs-soft: #F1F6F2;
   --gs-mid: #C9DCCE;
+  --index-active: #3D6B4A;
 }
 
 .fyg-hero-card {
@@ -3980,3 +3981,32 @@ tr:hover .ci{transform:scale(1.12)}
     white-space: normal;
   }
 }
+
+/* ── Portfolio AI Flow Charts ── */
+.procore-shell .chart {
+  background: var(--white);
+  border: 1.5px solid var(--gray-mid);
+  border-radius: 16px;
+  padding: 24px 28px 22px;
+  margin: 28px 0 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  overflow-x: auto;
+}
+
+.procore-shell .chart figcaption {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.procore-shell .flow {
+  width: 100%;
+  min-width: 600px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+

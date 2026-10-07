@@ -1183,6 +1183,22 @@ footer {
   flex-shrink: 0;
 }
 
+.inline-emoji {
+  display: inline-block;
+  vertical-align: -0.2em;
+  margin-left: 0.25rem;
+  width: 1.2em;
+  height: 1.2em;
+  object-fit: contain;
+}
+
+.beyond-emoji .inline-emoji {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  margin-left: 0;
+}
+
 .intro-inner--inline .intro-tagline {
   margin-left: auto;
   margin-right: auto;
@@ -1340,7 +1356,10 @@ footer {
 .projects-grid-2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 2.25rem 2rem;
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .work-card {
@@ -1363,10 +1382,11 @@ footer {
 }
 
 .work-card-image {
-  aspect-ratio: 1024 / 581;
+  aspect-ratio: 16 / 10;
   width: 100%;
   overflow: hidden;
   border-radius: 14px 14px 0 0;
+  background: #f1efe9;
 }
 
 .work-card-image img {
@@ -1374,6 +1394,11 @@ footer {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.35s ease;
+}
+
+.work-card:hover .work-card-image img {
+  transform: scale(1.025);
 }
 
 .work-card-image--procore {
@@ -1855,7 +1880,7 @@ footer {
 }
 
 .about-page #beyond {
-  padding-top: clamp(1rem, 2.5vw, 1.75rem);
+  padding-top: clamp(2.5rem, 5vw, 4.5rem);
 }
 
 .about-page-layout {
