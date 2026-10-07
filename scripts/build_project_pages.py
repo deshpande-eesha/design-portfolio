@@ -9,7 +9,7 @@ CONTENT = Path(__file__).resolve().parent / "content"
 FOOTER = """
   <footer class="site-footer">
     <div class="site-footer-inner">
-      <p class="site-footer-brand">Eesha Explores</p>
+      <p class="site-footer-brand">Eesha Deshpande</p>
       <nav class="site-footer-nav" aria-label="Footer">
         <a href="../index.html">Home</a>
         <a href="../about.html">About</a>
