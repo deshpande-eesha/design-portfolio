@@ -799,9 +799,17 @@ footer {
 
 .contact-cta-row {
   display: flex;
-  gap: 14px;
-  margin-top: 36px;
-  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.contact-cta-row .btn-pill {
+  white-space: nowrap;
+  padding: 0.8rem 1.25rem;
+  font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
 .btn-yellow-outline {
@@ -1507,11 +1515,11 @@ footer {
 }
 
 .home-page #projects {
-  padding-bottom: 1.75rem;
+  padding-bottom: clamp(2.5rem, 5vw, 3.75rem);
 }
 
 .doodle-section {
-  padding-top: 0.75rem;
+  padding-top: clamp(2.5rem, 5vw, 4rem);
   padding-bottom: clamp(4rem, 8vw, 6rem);
 }
 
@@ -1790,7 +1798,7 @@ footer {
 }
 
 .projects-page .page-hero .section-subtitle--long {
-  margin-top: 0.5rem;
+  margin-top: 1.65rem;
   margin-bottom: 0;
 }
 
@@ -1809,8 +1817,15 @@ footer {
 }
 
 .projects-page .page-hero-title {
-  font-size: clamp(2rem, 4.6vw, 3.15rem);
-  max-width: 18ch;
+  font-size: clamp(1.85rem, 3.8vw, 3.15rem);
+  max-width: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .projects-page .page-hero-title {
+    white-space: normal;
+  }
 }
 
 .page-hero-text {
@@ -2120,6 +2135,8 @@ footer {
   max-width: none;
   margin: 0;
   padding: 0;
+  grid-template-columns: min(320px, 34%) 1fr;
+  gap: clamp(1.75rem, 3.5vw, 3rem);
 }
 
 .contact-wrap {
@@ -2127,8 +2144,8 @@ footer {
   margin: 0 auto;
   padding: calc(var(--nav-h) + 4rem) clamp(1.5rem, 4vw, 3.5rem) 5rem;
   display: grid;
-  grid-template-columns: min(380px, 42%) 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: min(340px, 36%) 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
   align-items: center;
 }
 
@@ -2181,6 +2198,17 @@ footer {
 @media (max-width: 640px) {
   .beyond-list {
     grid-template-columns: 1fr;
+  }
+
+  .contact-cta-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .contact-cta-row .btn-pill {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 }
 
