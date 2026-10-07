@@ -36,9 +36,16 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.01, rootMargin: "40px 0px 0px 0px" }
     );
-    revealItems.forEach((item) => observer.observe(item));
+    revealItems.forEach((item) => {
+      const top = item.getBoundingClientRect().top;
+      if (top < window.innerHeight * 0.95) {
+        item.classList.add("is-visible");
+      } else {
+        observer.observe(item);
+      }
+    });
   } else {
     revealItems.forEach((item) => item.classList.add("is-visible"));
   }
@@ -177,5 +184,23 @@
     }
     img.addEventListener("load", done, { once: true });
     img.addEventListener("error", done, { once: true });
+  });
+
+  document.querySelectorAll("[data-bento-tabs]").forEach((root) => {
+    const tabs = [...root.querySelectorAll('[role="tab"]')];
+    const panels = [...root.querySelectorAll("[data-bento-panel]")];
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const id = tab.getAttribute("aria-controls");
+        tabs.forEach((t) => {
+          const on = t === tab;
+          t.classList.toggle("is-active", on);
+          t.setAttribute("aria-selected", String(on));
+        });
+        panels.forEach((panel) => {
+          panel.hidden = panel.id !== id;
+        });
+      });
+    });
   });
 })();

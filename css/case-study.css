@@ -269,7 +269,8 @@ tr:hover .ci{transform:scale(1.12)}
 .design-slot.wide{grid-column:span 2}
 
 /* ── FOOTER ── */
-.case-footer{background:#111;color:white;padding:64px 48px 48px;margin-top:0}
+.case-footer{background:#111;color:white;padding:48px;margin:2.25rem auto 1.75rem;border-radius:18px;max-width:var(--content-max,1200px);width:100%;box-sizing:border-box}
+.case-page > .case-footer{width:calc(100% - 2 * var(--page-pad, 1.5rem))}
 .case-footer-inner{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
 .next-label{font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1.2}
 .next-label span{color:#FFC107}
@@ -303,7 +304,7 @@ tr:hover .ci{transform:scale(1.12)}
   .detail-step:nth-child(even){grid-template-columns:1fr}
   .detail-step:nth-child(even) .detail-text{order:1}
   .detail-step:nth-child(even) .img-slot{order:2}
-  .case-footer{padding:48px 24px 40px}
+  .case-footer{padding:40px 24px}
   .pm-highlight-visual{grid-template-columns:1fr 1fr}
 }
 
@@ -3080,6 +3081,11 @@ tr:hover .ci{transform:scale(1.12)}
   --gs-mid: #C9DCCE;
 }
 
+.fyg-hero-card {
+  padding: 0;
+  overflow: hidden;
+}
+
 .empathi-hero-card {
   background: transparent;
   border: none;
@@ -3133,8 +3139,9 @@ tr:hover .ci{transform:scale(1.12)}
 .fyg-hero-card .ccp-header-band {
   background: var(--gs);
   color: #fff;
-  border-radius: 18px;
+  border-radius: 0 0 18px 18px;
   padding: 2.5rem 2rem;
+  margin: 0;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -3219,20 +3226,64 @@ tr:hover .ci{transform:scale(1.12)}
 }
 
 .fyg-shell .gs-slot--icon:has(img) {
-  width: 80px;
+  width: 72px;
   height: auto;
   min-height: 0;
   border-radius: 0;
   overflow: visible;
-  margin: 0 auto 0.75rem;
+  margin: 0;
 }
 
 .fyg-shell .gs-slot--icon img {
   border-radius: 50%;
 }
 
+.fyg-shell .gs-item:has(> .gs-slot--icon) {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  column-gap: 1.1rem;
+  align-items: start;
+}
+
+.fyg-shell .gs-item > .gs-slot--icon {
+  grid-row: 1 / span 8;
+  margin-top: 0.1rem;
+}
+
+.fyg-shell .gs-item > h3,
+.fyg-shell .gs-item > p,
+.fyg-shell .gs-item > ul {
+  grid-column: 2;
+}
+
+.fyg-shell .gs-item > h3 {
+  margin-top: 0.2rem;
+}
+
+.fyg-shell .gs-split {
+  align-items: start;
+}
+
+.fyg-shell .gs-split > .gs-slot img {
+  border-radius: 12px;
+}
+
+.fyg-hero-card .gs-slot--hero {
+  border-radius: 18px 18px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  min-height: 0;
+}
+
 .fyg-shell .gs-slot--hero img {
-  border-radius: 18px;
+  border-radius: 18px 18px 0 0;
+}
+
+@media (max-width: 800px) {
+  .fyg-shell .gs-item:has(> .gs-slot--icon) {
+    grid-template-columns: 56px minmax(0, 1fr);
+    column-gap: 0.85rem;
+  }
 }
 
 .gs-split {
