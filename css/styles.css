@@ -1388,7 +1388,7 @@ footer {
 }
 
 .work-card-image {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1024 / 754;
   width: 100%;
   overflow: hidden;
   border-radius: 14px 14px 0 0;
@@ -1398,7 +1398,7 @@ footer {
 .work-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   transition: transform 0.35s ease;
 }
