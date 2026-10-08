@@ -1356,8 +1356,8 @@ footer {
 .projects-grid-2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.25rem 2rem;
-  max-width: 1040px;
+  gap: 2rem 1.5rem;
+  max-width: 860px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1388,23 +1388,19 @@ footer {
 }
 
 .work-card-image {
-  aspect-ratio: 1024 / 754;
   width: 100%;
-  overflow: hidden;
-  border-radius: 14px 14px 0 0;
-  background: #000000;
+  line-height: 0;
+  background: var(--white);
+  padding: 10px 10px 0;
 }
 
 .work-card-image img {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
   display: block;
-  transition: transform 0.35s ease;
-}
-
-.work-card:hover .work-card-image img {
-  transform: scale(1.025);
+  object-fit: contain;
+  object-position: top center;
+  border-radius: 12px;
 }
 
 .work-card-image--procore {
