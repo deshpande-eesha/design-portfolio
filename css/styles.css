@@ -1102,7 +1102,7 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 0.7rem 0.95rem;
-  margin-bottom: 0.15em;
+  margin-bottom: 0.85rem;
 }
 
 .intro-title-row .intro-title {
@@ -1254,11 +1254,18 @@ footer {
 .intro-title .accent-warm { color: var(--accent-warm); }
 .intro-title .accent-cool { color: var(--accent-cool); }
 
+.intro-title-emoji {
+  width: 0.72em;
+  height: 0.72em;
+  margin-left: 0.12em;
+  vertical-align: -0.08em;
+}
+
 .intro-tagline {
-  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-size: clamp(0.9375rem, 2vw, 1.125rem);
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.72);
-  line-height: 1.55;
+  color: #4A4843;
+  line-height: 1.6;
   max-width: 38rem;
   margin: 0 auto 1.5rem;
 }
