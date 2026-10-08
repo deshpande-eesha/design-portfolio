@@ -371,10 +371,15 @@ a { color: inherit; }
   color: var(--gray-text);
   line-height: 1.7;
   max-width: none;
+  text-align: left;
 }
 
 .section-subtitle + .projects-grid-2 {
-  margin-top: 2rem;
+  margin-top: 2.25rem;
+}
+
+.section-top + .projects-grid-2 {
+  margin-top: 1.75rem;
 }
 
 /* Project grid — Meeko editorial 3-col */
@@ -1333,12 +1338,17 @@ footer {
   scroll-margin-top: calc(var(--nav-h) + 24px);
 }
 
+.home-page #projects .home-inner,
+.projects-page .home-inner {
+  max-width: calc(920px + 2 * var(--page-pad));
+}
+
 .section-top {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
+  gap: 1.25rem;
+  margin-bottom: 0.55rem;
 }
 
 .section-link {
@@ -1346,6 +1356,8 @@ footer {
   font-weight: 600;
   color: var(--gray-text);
   text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: color 0.2s;
 }
 
@@ -1353,13 +1365,19 @@ footer {
   color: var(--black);
 }
 
+.home-page #projects .section-subtitle,
+.projects-page .page-hero .section-subtitle {
+  margin-top: 0;
+  width: 100%;
+}
+
 .projects-grid-2 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem 1.5rem;
-  max-width: 860px;
-  margin-left: auto;
-  margin-right: auto;
+  gap: 3rem 2.5rem;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 
 .projects-more-row {
@@ -1824,8 +1842,12 @@ footer {
   padding-bottom: 0.15rem;
 }
 
+.projects-page .page-hero + .home-section {
+  padding-top: 1.75rem;
+}
+
 .projects-page .page-hero .section-subtitle--long {
-  margin-top: 1.65rem;
+  margin-top: 0.7rem;
   margin-bottom: 0;
 }
 
